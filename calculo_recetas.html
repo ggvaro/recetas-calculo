@@ -100,8 +100,7 @@
       }
 
       // Original calculation ( width * length * height / 500)
-      let eggsControlResult = (width * length * height) / 500;
-      document.getElementById('resultEggs').innerText = eggsControlResult.toFixed(2);
+      
       let eggsResult = (width * length * height) / 500;
       let roundedResult;
   if (eggsResult >= 16.00 && originalResult < 16.60) {
@@ -116,6 +115,8 @@
       // Volume calculation in liters (width * length * height / 1000)
       let volumeResult = (width * length * height) / 1000;
       document.getElementById('resultVolume').innerText = volumeResult.toFixed(2);
+      let eggsControlResult = (width * length * height) / 500;
+      document.getElementById('resultEggs').innerText = eggsControlResult.toFixed(2);
     }
   </script>
 
