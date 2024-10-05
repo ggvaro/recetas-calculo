@@ -83,6 +83,7 @@
       <button type="button" onclick="calculate()">Calcular</button>
 
       <p>Huevos: <span class="result" id="resultEggs"></span></p>
+      <p>control-huevos: <span class="result" id="resultEggsControl"></span></p>
       <p>Volumen en litros: <span class="result" id="resultVolume"></span></p>
     </form>
   </div>
@@ -99,6 +100,8 @@
       }
 
       // Original calculation ( width * length * height / 500)
+      let eggsControlResult = (width * length * height) / 500;
+      document.getElementById('resultEggs').innerText = eggsControlResult.toFixed(2);
       let eggsResult = (width * length * height) / 500;
       let roundedResult;
   if (eggsResult >= 16.00 && originalResult < 16.60) {
