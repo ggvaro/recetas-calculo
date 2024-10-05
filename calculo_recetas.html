@@ -103,7 +103,7 @@
       
       let eggsResult = (width * length * height) / 500;
       let roundedResult;
-  if (eggsResult >= 16.00 && originalResult < 16.60) {
+  if (eggsResult >= 16.00 && eggsResult < 16.60) {
     roundedResult = 16; // Rounds to 16
   } else if (eggsResult >= 16.60 && eggsResult < 17.00) {
     roundedResult = 17; // Rounds to 17
