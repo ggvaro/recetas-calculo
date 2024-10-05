@@ -83,7 +83,7 @@
       <button type="button" onclick="calculate()">Calcular</button>
 
       <p>Huevos: <span class="result" id="resultEggs"></span></p>
-      <p>control-huevos: <span class="result" id="resultEggsControl"></span></p>
+      <p>Huevos sin redondeo: <span class="result" id="resultEggsControl"></span></p>
       <p>Volumen en litros: <span class="result" id="resultVolume"> L</span></p>
     </form>
   </div>
@@ -116,7 +116,7 @@
 
       // Volume calculation in liters (width * length * height / 1000)
       let volumeResult = (width * length * height) / 1000;
-      document.getElementById('resultVolume').innerText = volumeResult.toFixed(2)+ " L";
+      document.getElementById('resultVolume').innerText = volumeResult.toFixed(2);
       let eggsControlResult = (width * length * height) / 500;
       document.getElementById('resultEggsControl').innerText = eggsControlResult.toFixed(2);
     }
