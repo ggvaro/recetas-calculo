@@ -101,15 +101,17 @@
 
       // Original calculation ( width * length * height / 500)
       
-      let eggsResult = (width * length * height) / 500;
+        let eggsResult = (width * length * height) / 500;
+  
+      // Custom rounding logic for X.00 - X.60 rounding to X, and X.61 - X.99 rounding to X + 1
       let roundedResult;
-  if (eggsResult >= 16.00 && eggsResult < 16.60) {
-    roundedResult = 16; // Rounds to 16
-  } else if (eggsResult >= 16.60 && eggsResult < 17.00) {
-    roundedResult = 17; // Rounds to 17
-  } else {
-    roundedResult = Math.round(eggsResult); // Default rounding for other cases
-  }
+      let decimalPart = eggsResult - Math.floor(eggsResult); // Get the decimal part of the number
+  
+      if (decimalPart <= 0.60) {
+      roundedResult = Math.floor(eggsResult); // Round down to X
+        } else {
+       roundedResult = Math.ceil(eggsResult); // Round up to X + 1
+      }
       document.getElementById('resultEggs').innerText = roundedResult.toFixed(2);
 
       // Volume calculation in liters (width * length * height / 1000)
