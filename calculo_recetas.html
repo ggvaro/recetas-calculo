@@ -108,7 +108,7 @@
   } else if (eggsResult >= 16.60 && eggsResult < 17.00) {
     roundedResult = 17; // Rounds to 17
   } else {
-    roundedResult = Math.round(originalResult); // Default rounding for other cases
+    roundedResult = Math.round(eggsResult); // Default rounding for other cases
   }
       document.getElementById('resultEggs').innerText = roundedResult.toFixed(2);
 
@@ -116,7 +116,7 @@
       let volumeResult = (width * length * height) / 1000;
       document.getElementById('resultVolume').innerText = volumeResult.toFixed(2);
       let eggsControlResult = (width * length * height) / 500;
-      document.getElementById('resultEggs').innerText = eggsControlResult.toFixed(2);
+      document.getElementById('resultEggsControl').innerText = eggsControlResult.toFixed(2);
     }
   </script>
 
