@@ -68,22 +68,22 @@
 <body>
 
   <div class="container">
-    <h2>Dimension Calculator</h2>
+    <h2>Calculador de recetas</h2>
     
     <form id="calculationForm">
       <label for="width">Width (cm):</label>
-      <input type="number" id="width" name="width" placeholder="Enter width">
+      <input type="number" step="0.01" id="width" name="ancho" placeholder="Enter width">
 
       <label for="length">Length (cm):</label>
-      <input type="number" id="length" name="length" placeholder="Enter length">
+      <input type="number" step="0.01" id="length" name="largo" placeholder="Enter length">
 
       <label for="height">Height (cm):</label>
-      <input type="number" id="height" name="height" placeholder="Enter height">
+      <input type="number" step="0.01" id="height" name="alto" placeholder="Enter height">
 
       <button type="button" onclick="calculate()">Calculate</button>
 
-      <p>Result - Original Calculation: <span class="result" id="resultOriginal"></span></p>
-      <p>Result - Volume in Liters: <span class="result" id="resultVolume"></span></p>
+      <p>Result - Huevos: <span class="result" id="resultOriginal"></span></p>
+      <p>Result - Volumen en litros: <span class="result" id="resultVolume"></span></p>
     </form>
   </div>
 
@@ -110,4 +110,3 @@
 
 </body>
 </html>
-
