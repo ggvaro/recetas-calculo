@@ -3,22 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de recetas</title>
+  <title>Dimension Calculator</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
     .container {
-      max-width: 400px;
-      margin: 100px auto;
+      background-color: white;
       padding: 20px;
-      border: 1px solid #ccc;
       border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    h2 {
+      color: #333;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #333;
     }
     input {
       width: 100%;
       padding: 10px;
-      margin: 10px 0;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
       box-sizing: border-box;
     }
     button {
@@ -27,51 +46,68 @@
       background-color: #4CAF50;
       color: white;
       border: none;
+      border-radius: 5px;
       cursor: pointer;
+      font-size: 16px;
     }
     button:hover {
       background-color: #45a049;
     }
+    p {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #333;
+    }
     .result {
-      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h2>Calculadora de huevos</h2>
-    <form id="calcForm">
-      <label for="width">Ancho (cm):</label>
-      <input type="number" step="0.1" id="width" required>
-      
-      <label for="length">Largo (cm):</label>
-      <input type="number" step="0.1" id="length" required>
+    <h2>Dimension Calculator</h2>
+    
+    <form id="calculationForm">
+      <label for="width">Width (cm):</label>
+      <input type="number" id="width" name="width" placeholder="Enter width">
 
-      <label for="height">Alto (cm):</label>
-      <input type="number" step="0.1" id="height" required>
+      <label for="length">Length (cm):</label>
+      <input type="number" id="length" name="length" placeholder="Enter length">
 
-      <button type="submit">Calcular</button>
+      <label for="height">Height (cm):</label>
+      <input type="number" id="height" name="height" placeholder="Enter height">
 
-      <div class="result" id="result1"></div>
-      <div class="result" id="result2"></div>
+      <button type="button" onclick="calculate()">Calculate</button>
+
+      <p>Result - Original Calculation: <span class="result" id="resultOriginal"></span></p>
+      <p>Result - Volume in Liters: <span class="result" id="resultVolume"></span></p>
     </form>
   </div>
 
   <script>
-    document.getElementById('calcForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const width = parseFloat(document.getElementById('width').value);
-      const length = parseFloat(document.getElementById('length').value);
-      const height = parseFloat(document.getElementById('height').value);
-      
-      const result1 = (width * length * height) / 500;
-      const result2 = (width * length * height) / 1000;
-      
-      document.getElementById('result1').innerHTML = 'Huevos: ' + result.toFixed(2);
-      document.getElementById('result2').innerHTML = 'volumen: ' + result.toFixed(2);
-    });
+    function calculate() {
+      let width = parseFloat(document.getElementById('width').value);
+      let length = parseFloat(document.getElementById('length').value);
+      let height = parseFloat(document.getElementById('height').value);
+
+      if (isNaN(width) || isNaN(length) || isNaN(height)) {
+        alert("Please enter valid numbers for all dimensions");
+        return;
+      }
+
+      // Original calculation (sum / 500)
+      let originalResult = (width + length + height) / 500;
+      document.getElementById('resultOriginal').innerText = originalResult.toFixed(2);
+
+      // Volume calculation in liters (width * length * height / 1000)
+      let volumeResult = (width * length * height) / 1000;
+      document.getElementById('resultVolume').innerText = volumeResult.toFixed(2);
+    }
   </script>
 
 </body>
 </html>
+
