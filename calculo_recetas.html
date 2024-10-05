@@ -100,7 +100,8 @@
 
       // Original calculation ( width * length * height / 500)
       let eggsResult = (width * length * height) / 500;
-      document.getElementById('resultEggs').innerText = eggsResult.toFixed(2);
+      let roundedResult = Math.round(eggsResult - 0.5); // Custom rounding
+      document.getElementById('resultEggs').innerText = roundedResult.toFixed(2);
 
       // Volume calculation in liters (width * length * height / 1000)
       let volumeResult = (width * length * height) / 1000;
