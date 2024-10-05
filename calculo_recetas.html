@@ -100,7 +100,14 @@
 
       // Original calculation ( width * length * height / 500)
       let eggsResult = (width * length * height) / 500;
-      let roundedResult = Math.round(eggsResult - 0.6); // Custom rounding
+      let roundedResult;
+  if (eggsResult >= 16.00 && originalResult < 16.60) {
+    roundedResult = 16; // Rounds to 16
+  } else if (eggsResult >= 16.60 && eggsResult < 17.00) {
+    roundedResult = 17; // Rounds to 17
+  } else {
+    roundedResult = Math.round(originalResult); // Default rounding for other cases
+  }
       document.getElementById('resultEggs').innerText = roundedResult.toFixed(2);
 
       // Volume calculation in liters (width * length * height / 1000)
